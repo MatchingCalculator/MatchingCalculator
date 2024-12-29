@@ -275,13 +275,13 @@ footer {
 	    if (yourAge > partnerAge) {
             const ageDifference = Math.abs(yourAge - partnerAge);
 	    if (ageDifference > 3) {
-                matchPercentage *= (partnerAge / yourAge) * 0.855;
+                matchPercentage *= (partnerAge / yourAge) * 0.87;
             }}
 
 	    if (partnerAge > yourAge) {
             const ageDifference = Math.abs(partnerAge - yourAge);
             if (ageDifference > 13) {
-                matchPercentage *= (yourAge / partnerAge) * 1.21;
+                matchPercentage *= (yourAge / partnerAge) * 1.29;
             }}
 
             const resultShort = document.getElementById('result-short');
