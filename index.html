@@ -5,35 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matching Calculator</title>
     <style>
+
         body {
             font-family: Arial, sans-serif;
             background-color: rgb(227, 209, 209);
             margin: 0;
             padding: 0;
+            
         }
         .calculator-wrapper {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
+    	display: flex;
+    	gap: 20px;
         }
+
         .calculator-container {
             background: rgb(235, 174, 174);
-            padding: 40px 30px;
+            padding: 30px 40px;
             border-radius: 8px;
             box-shadow: 0 31px 31px rgba(0, 0, 0, 0.4);
             width: 100%;
             max-width: 450px;
-            margin: 20px;
-            box-sizing: border-box;
-	    margin-left: 40px;
-	    margin-right: 40px;
+            margin-right: 30px;
+            margin-left: 40px;
         }
         .calculator-container h2 {
             text-align: center;
             color: #333;
             text-decoration: underline;
-            margin-top: 10px;
+		margin-top: 10px;
         }
         .form-group {
             margin-bottom: 15px;
@@ -48,8 +47,7 @@
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 14px;
-            box-sizing: border-box;
-            -webkit-appearance: none;
+	    box-sizing: border-box;
         }
         .result {
             text-align: center;
@@ -66,8 +64,8 @@
             cursor: pointer;
             width: 100%;
             margin-bottom: 10px;
-            transition: background-color 0.3s ease;
-            -webkit-transition: background-color 0.3s ease;
+	    transition: 1s;
+	    
         }
         button:hover {
             background-color: rgb(255, 107, 107);
@@ -77,79 +75,127 @@
             gap: 10px;
         }
 
-        header {
-            background: rgb(50, 50, 50);
-            color: rgb(255, 255, 255);
-            padding: 10px 0;
-            text-align: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: background-color 1s ease;
-            -webkit-transition: background-color 1s ease;
-        }
-        header:hover {
-            background-color: black;
-            opacity: 1;
-        }
-        header nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    header {
+    background: rgb(50, 50, 50);
+    color: rgb(255, 255, 255);
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    z-index: 1000; 
+    border-radius: 0;
+    transition: 1s;
+	}
+header:hover {
+	background-color: black;
+	opacity: 4;
+}
+header nav {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 30px;
-	    margin-top: 15px;
-    	    margin-bottom: 15px; 
-        }
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px; 
+}
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            padding: 5px 10px;
-            border-radius: 20px;
-            transition: background-color 0.6s ease;
-            -webkit-transition: background-color 0.6s ease;
-        }
-        nav ul li a:hover {
-            background-color: #655;
-        }
+nav ul li {
+    display: inline; 
+}
 
-        .main-content {
-            margin-top: 130px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: calc(100vh - 100px);
-            flex-direction: auto;
-        }
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem; 
+    padding: 5px 10px; 
+    border-radius: 20px; 
+    transition: background-color 0.5s;
+}
 
-        footer {
-            text-align: center;
-            padding: 10px;
-            background: rgb(50, 50, 50);
-            color: white;
-            position: relative;
-            bottom: 0;
-            width: auto;
-        }
+nav ul li a:hover {
+    background-color: #655; 
+}
+.main-content {
+    margin-top: 80px;
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; 
+    min-height: calc(100vh - 100px);
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: rgb(50, 50, 50);
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+main {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    background: #fff;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+}
+
+.fullscreen-image {
+    width: 100%; 
+    margin: 0; 
+    object-position: top; 
+    z-index: -1; 
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+}
+.pheader {
+  	width: 60%; 
+  	max-width: 1050px; 
+  	margin: auto; 
+  	text-align: left; 
+	font-weight: 600; 
+}
+
     </style>
 </head>
 
 <body>
+
+	<img class="fullscreen-image" src="shawtycalculator.jpg" alt="shawtycalculator.jpg">
+
+ 	<main>
+        <h1>PROFESSIONAL SHAWTY CALCULATOR</h1>
+        <p class="pheader">Welcome to Shawty Calculator, the ultimate online destination for measuring compatibility with your partner, a random crush, or that baddie who’s been on your mind. Whether 	you're here for fun, curiosity, or just to spark a conversation, our platform makes it easy to calculate the perfect match with just a few clicks.
+	<br>
+	Founded in 1997, Shawty Calculator was created with one mission: to add a bit of flair, humor, and insight to the way people connect and evaluate their chemistry. Over the years, 	we’ve grown from a simple idea into a beloved tool for playful match assessments, delivering both entertainment and a touch of mystery to relationships around the globe.
+	<br>
+	We understand that relationships can be complicated, but we believe in making things light-hearted and fun. So whether you’re checking compatibility with your current boo or just 	curious about a random connection, Shawty Calculator has got you covered.
+
+	So go ahead, calculate your vibe, and see if you’ve found your match—or just a fun story to share!</p>
+   	</main>
+
 <header>
     <nav>
         <ul>
-            <li><a href="index_mywebsiteaboutchatgpt.html">Home</a></li>
+            <li><a href="Website_Rating_Matching.html">Home</a></li>
             <li><a href="index_aboutuswebsitechatgpt.html">Matching Calculator</a></li>
             <li><a href="index_serviceswebsitechatgpt.html">Services</a></li>
             <li><a href="index_contactuswebsitechatgpt.html">Contact</a></li>
@@ -233,7 +279,7 @@
 
     <footer>
 	<br>
-        <p>A WEBSITE TO SEE IF YOU AND YOU SHAWTY MATCH</p>
+        <p>A WEBSITE TO FIND YOUR PERFECT SHAWTY</p>
 	<br>
     </footer>
 
