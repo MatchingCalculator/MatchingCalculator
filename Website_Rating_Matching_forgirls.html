@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matching Calculator</title>
+    <link rel="stylesheet" href="website_matching_calculator.css">
+</head>
+
+<body>
+<div class="forboys">
+
+	<img class="fullscreen-image" src="shawtycalculatorboys.jpg" alt="shawtycalculator.jpg">
+
+ 	<main>
+        <h1>PROFESSIONAL SHAWTY CALCULATOR</h1>
+        <p class="pheader">Welcome to Shawty Calculator, the ultimate online destination for measuring compatibility with your partner, a random crush, or that baddie who’s been on your mind. Whether 	you're here for fun, curiosity, or just to spark a conversation, our platform makes it easy to calculate the perfect match with just a few clicks.
+	<br>
+	Founded in 1997, Shawty Calculator was created with one mission: to add a bit of flair, humor, and insight to the way people connect and evaluate their chemistry. Over the years, 	we’ve grown from a simple idea into a beloved tool for playful match assessments, delivering both entertainment and a touch of mystery to relationships around the globe.
+	<br>
+	We understand that relationships can be complicated, but we believe in making things light-hearted and fun. So whether you’re checking compatibility with your current boo or just 	curious about a random connection, Shawty Calculator has got you covered.
+
+	So go ahead, calculate your vibe, and see if you’ve found your match—or just a fun story to share!</p>
+   	</main>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="Website_Rating_Matching.html">MATCHING WITH A GIRL</a></li>
+            <li><a href="Website_Rating_Matching_forgirls.html">MATCHING WITH A BOY</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <div class="main-content">
+        <div class="calculator-container-girls">
+            <h2>Short-Term Matching Calculator</h2>
+            <form id="short-term-form">
+                <div class="form-group">
+                    <label for="your-age-short">Your Age (0-100):</label>
+                    <input type="number" id="your-age-short" required>
+                </div>
+                <div class="form-group">
+                    <label for="partner-age-short">Partner's Age (0-100):</label>
+                    <input type="number" id="partner-age-short" required>
+                </div>
+                <div class="form-group">
+                    <label for="body-rating-short">Body Rating (1-10):</label>
+                    <input type="number" id="body-rating-short" min="1" max="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="character-rating-short">Character Rating (1-10):</label>
+                    <input type="number" id="character-rating-short" min="1" max="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="outfit-rating-short">Outfit Rating (1-10):</label>
+                    <input type="number" id="outfit-rating-short" min="1" max="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="face-rating-short">Face Rating (1-10):</label>
+                    <input type="number" id="face-rating-short" min="1" max="10" required>
+                </div>
+                <button type="button" onclick="calculateShortTermMatch()">Calculate Match</button>
+                <div class="reset-buttons">
+                    <button type="button" onclick="resetShortTermAge()">Reset Age</button>
+                    <button type="button" onclick="resetShortTermRatings()">Reset Ratings</button>
+                </div>
+            </form>
+            <div id="result-short" class="result"></div>
+        </div>
+
+        <div class="calculator-container-girls">
+            <h2>Relationship Matching Calculator</h2>
+            <form id="long-term-form">
+                <div class="form-group">
+                    <label for="your-age-long">Your Age (0-100):</label>
+                    <input type="number" id="your-age-long" required>
+                </div>
+                <div class="form-group">
+                    <label for="partner-age-long">Partner's Age (0-100):</label>
+                    <input type="number" id="partner-age-long" required>
+                </div>
+                <div class="form-group">
+                    <label for="body-rating-long">Body Rating (1-10):</label>
+                    <input type="number" id="body-rating-long" min="1" max="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="character-rating-long">Character Rating (1-10):</label>
+                    <input type="number" id="character-rating-long" min="1" max="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="outfit-rating-long">Outfit Rating (1-10):</label>
+                    <input type="number" id="outfit-rating-long" min="1" max="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="face-rating-long">Face Rating (1-10):</label>
+                    <input type="number" id="face-rating-long" min="1" max="10" required>
+                </div>
+                <button type="button" onclick="calculateLongTermMatch()">Calculate Match</button>
+                <div class="reset-buttons">
+                    <button type="button" onclick="resetLongTermAge()">Reset Age</button>
+                    <button type="button" onclick="resetLongTermRatings()">Reset Ratings</button>
+                </div>
+            </form>
+            <div id="result-long" class="result"></div>
+        </div>
+    </div>
+
+    <footer>
+	<br>
+        <p>A WEBSITE TO FIND YOUR PERFECT SHAWTY</p>
+	<br>
+    </footer>
+</div>
+
+    <script>
+        function calculateShortTermMatch() {
+            const yourAge = parseInt(document.getElementById('your-age-short').value);
+            const partnerAge = parseInt(document.getElementById('partner-age-short').value);
+            const bodyRating = parseInt(document.getElementById('body-rating-short').value);
+            const characterRating = parseInt(document.getElementById('character-rating-short').value);
+            const outfitRating = parseInt(document.getElementById('outfit-rating-short').value);
+            const faceRating = parseInt(document.getElementById('face-rating-short').value);
+
+            if (isNaN(yourAge) || isNaN(partnerAge) || isNaN(bodyRating) || isNaN(characterRating) || isNaN(outfitRating) || isNaN(faceRating)) {
+                alert('Please fill in all fields with valid numbers.');
+                return;
+            }
+
+            if ([bodyRating, characterRating, outfitRating, faceRating].some(rating => rating > 10)) {
+                alert('Please enter ratings between 1 and 10.');
+                return;
+            }
+
+	    if ([yourAge, partnerAge].some(age => age > 100)) {
+                alert('Please choose an age smaller than 100');
+                return;
+	    }
+	
+	   
+            const weights = { body: 0.5, character: 0.15, outfit: 0.15, face: 0.2 };
+            let matchPercentage = (
+                bodyRating * weights.body +
+                characterRating * weights.character +
+                outfitRating * weights.outfit +
+                faceRating * weights.face
+            ) * 10;
+
+	    if (yourAge > partnerAge) {
+            const ageDifference = Math.abs(yourAge - partnerAge);
+	    if (ageDifference > 3) {
+                matchPercentage *= (partnerAge / yourAge) * 0.89;
+            }}
+
+	    if (partnerAge > yourAge) {
+            const ageDifference = Math.abs(partnerAge - yourAge);
+            if (ageDifference > 7) {
+                matchPercentage *= (yourAge / partnerAge) * 1.21;
+            }}
+
+            const resultShort = document.getElementById('result-short');
+            resultShort.textContent = matchPercentage >= 69 
+                ? `GO FUCK HER: ${matchPercentage.toFixed(2)}%` 
+                : `DON'T FUCK: ${matchPercentage.toFixed(2)}%`;
+
+            resultShort.style.color = matchPercentage >= 69 ? 'green' : 'red';
+        }
+
+        function calculateLongTermMatch() {
+            const yourAge = parseInt(document.getElementById('your-age-long').value);
+            const partnerAge = parseInt(document.getElementById('partner-age-long').value);
+            const bodyRating = parseInt(document.getElementById('body-rating-long').value);
+            const characterRating = parseInt(document.getElementById('character-rating-long').value);
+            const outfitRating = parseInt(document.getElementById('outfit-rating-long').value);
+            const faceRating = parseInt(document.getElementById('face-rating-long').value);
+
+            if (isNaN(yourAge) || isNaN(partnerAge) || isNaN(bodyRating) || isNaN(characterRating) || isNaN(outfitRating) || isNaN(faceRating)) {
+                alert('Please fill in all fields with valid numbers.');
+                return;
+            }
+
+            if ([bodyRating, characterRating, outfitRating, faceRating].some(rating => rating > 10)) {
+                alert('Please enter ratings between 1 and 10.');
+                return;
+            }
+
+	    if ([yourAge, partnerAge].some(age => age > 100)) {
+                alert('Please choose an age smaller than 100');
+                return;
+	    }
+	
+
+            const weights = { body: 0.3, character: 0.3, outfit: 0.18, face: 0.22 };
+            let matchPercentage = (
+                bodyRating * weights.body +
+                characterRating * weights.character +
+                outfitRating * weights.outfit +
+                faceRating * weights.face
+            ) * 10;
+
+	    if (yourAge > partnerAge) {
+            const ageDifference = Math.abs(yourAge - partnerAge);
+	    if (ageDifference > 3) {
+                matchPercentage *= (partnerAge / yourAge) * 0.8;
+            }}
+
+	    if (partnerAge > yourAge) {
+            const ageDifference = Math.abs(partnerAge - yourAge);
+            if (ageDifference > 5) {
+                matchPercentage *= (yourAge / partnerAge) * 1.1;
+            }}
+
+            const resultLong = document.getElementById('result-long');
+            resultLong.textContent = matchPercentage >= 69 
+                ? `GO DATE HER: ${matchPercentage.toFixed(2)}%` 
+                : `DON'T DATE: ${matchPercentage.toFixed(2)}%`;
+
+            resultLong.style.color = matchPercentage >= 69 ? 'green' : 'red';
+
+        }
+
+        function resetShortTermAge() {
+            document.getElementById('your-age-short').value = '';
+            document.getElementById('partner-age-short').value = '';
+        }
+
+        function resetShortTermRatings() {
+            document.getElementById('body-rating-short').value = '';
+            document.getElementById('character-rating-short').value = '';
+            document.getElementById('outfit-rating-short').value = '';
+            document.getElementById('face-rating-short').value = '';
+        }
+
+        function resetLongTermAge() {
+            document.getElementById('your-age-long').value = '';
+            document.getElementById('partner-age-long').value = '';
+        }
+
+        function resetLongTermRatings() {
+            document.getElementById('body-rating-long').value = '';
+            document.getElementById('character-rating-long').value = '';
+            document.getElementById('outfit-rating-long').value = '';
+            document.getElementById('face-rating-long').value = '';
+        }
+    </script>
+</body>
+</html>
